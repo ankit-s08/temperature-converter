@@ -1,0 +1,146 @@
+<!DOCTYPE = html>
+<html>
+    <head>
+        <title>temp converter</title>
+        <style>
+            *{
+                padding:0px;
+                font-family:sans-serif;
+            }
+            h2{
+                font-size:102%;
+                margin-left:20px;
+                text-transform:uppercase;
+                font-weight:200;
+            }
+    
+            body{
+                background-color:#00dbfc;
+            }
+
+            .main-div
+            {
+                width:600px;
+                margin-left:auto;
+                margin-right:auto;
+                display:flex;
+                flex-flow:column wrap;
+                align-items:center;
+                justify-content:center;
+            }
+
+            .navbar{
+                display:flex;
+                flex-direction:row;
+                justify-content:center;
+                border-bottom:2px solid #1994a7;
+            }
+            
+
+            td{
+               padding-top:30px;
+            }
+            /* .div-1{
+                width:300px;
+                margin-left:0px;
+                margin-top:20px;
+            } */
+            
+            input{
+                height:30px;
+                
+            }
+            
+        </style>
+    </head>
+    <body>
+
+        <div class="main-div">
+
+            <div class="navbar">
+            <img src="iconmonstr-weather-6.svg" alt="logo" width="50px"/>
+            <h2>Temerature Converter</h2>
+            </div>
+
+                <!-- <div class="div-1"> -->
+                <table>
+                <tr>
+                    <td>
+                        <label for="celsius">Celsius: </label>
+                    </td>
+                    <td>
+                        <input type="number" placeholder="ex: 0" id="celsius" oninput="inputcelsius(this.value)"/>
+                    </td>
+                </tr>
+                <!-- </div> -->
+
+                <!-- <div class="div-1"> -->
+                <tr>
+                    <td>
+                        <label for="fahrenheit">Fahrenheit: </label>
+                    </td>
+                    <td>
+                        <input type="number" placeholder="ex: 32" id="fahren" oninput="inputfahren(this.value)"/>
+                    </td>
+                </tr>
+                <!-- </div> -->
+
+                <!-- <div class="div-1"> -->
+                <tr>
+                    <td>
+                    <label for="kelvin">Kelvin: </label>
+                    </td>
+                    <td>
+                    <input type="number" placeholder="ex: 273.15" id="kelvin" oninput="inputkelvin(this.value)"/>
+                    </td>
+                </tr>
+            </table>
+                <!-- </div> -->
+        </div>
+
+    </body>
+
+    <script>
+        // let c = document.getElementById('celsius');
+        // let k = document.getElementById('kelvin');
+        // let f = document.getElementById('fahren');
+        
+        // c = parseFloat(c);
+        // k = parseFloat(k);
+        // f = parseFloat(f);
+        // console.log(c + " " + k + " " + f);
+
+        function inputcelsius(celsius){
+            let c = parseFloat(celsius);
+            let k = c + 273.15;
+            let f = c*9/5 + 32;
+
+            document.getElementById('kelvin').value =  k.toFixed(2);
+
+            document.getElementById('fahren').value = f.toFixed(2);
+        }
+
+        function inputfahren(fahren){
+            let c = (fahren-32)*5/9;
+            let k = c + 273.15;
+
+            //update celsius value
+            document.getElementById('celsius').value = c.toFixed(2);
+
+            //update fahrenheit value
+            document.getElementById('kelvin').value = k.toFixed(2);
+        }
+
+        function inputkelvin(kelvin){
+            let k = parseFloat(kelvin);
+            let c = k - 273.15;
+            let f = c*9/5 + 32;
+
+            //update celsius
+            document.getElementById('celsius').value = c.toFixed(2);
+
+            //update fahrenheit value
+            document.getElementById('fahren').value = f.toFixed(2);
+        }
+    </script>
+</html> 
